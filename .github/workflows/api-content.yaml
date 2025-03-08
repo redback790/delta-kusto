@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Define environment
       id:  define-env
       run: |
@@ -30,9 +30,9 @@ jobs:
         echo "Target environment (targetEnv) '$targetEnv'"
         echo "##[set-output name=targetEnv;]$targetEnv"
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.x
+        dotnet-version: 8.x
     - name: Patch version
       id:  patch-version
       run: python3 deployment/patch-version.py code/DeltaKustoApi/DeltaKustoApi.csproj ${{ github.run_number }}
