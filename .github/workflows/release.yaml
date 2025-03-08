@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # We do not need the source code but we need git for tags & release
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     # Retrieve assets
     - uses: actions/download-artifact@master
       with:
@@ -83,11 +83,11 @@ jobs:
       execName:  delta-kusto
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.x
+        dotnet-version: 8.x
     - name: Patch version
       id:  patch-version
       run: python3 deployment/patch-version.py code/delta-kusto/delta-kusto.csproj ${{ github.run_number }}
@@ -145,11 +145,11 @@ jobs:
       execName:  delta-kusto
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.x
+        dotnet-version: 8.x
     - name: Patch version
       id:  patch-version
       run: python3 deployment/patch-version.py code/delta-kusto/delta-kusto.csproj ${{ github.run_number }}
@@ -207,11 +207,11 @@ jobs:
       execName:  delta-kusto.exe
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.x
+        dotnet-version: 8.x
     - name: Patch version
       id:  patch-version
       run: python3 deployment/patch-version.py code/delta-kusto/delta-kusto.csproj ${{ github.run_number }}
